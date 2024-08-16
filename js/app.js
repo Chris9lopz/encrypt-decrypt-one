@@ -1,4 +1,4 @@
-// Función de encriptación y desencriptación de texto
+// Función de encriptación
 function encriptar(traduccion) {
   document.querySelector("#warning").removeAttribute("style");
   // Seleccionamos el texto del textarea
@@ -39,7 +39,7 @@ function encriptar(traduccion) {
         out += texto[i];
       }
     }
-
+    // Agregar y remover clases para mostrar el resultado
     area_default.classList.add("invisible");
     area_result.classList.remove("invisible");
     texto_out.innerHTML = out;
@@ -47,7 +47,7 @@ function encriptar(traduccion) {
 
   return;
 }
-
+// Función de desencriptación
 function desencriptar(traduccion) {
   document.querySelector("#warning").removeAttribute("style");
   // Seleccionamos el texto del textarea
