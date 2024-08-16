@@ -1,13 +1,14 @@
+// Función de encriptación y desencriptación de texto
 function encriptar(traduccion) {
   document.querySelector("#warning").removeAttribute("style");
-  var textarea = document.querySelector("#texto");
+  let textarea = document.querySelector("#texto");
   const texto = textarea.value;
-  var area_default = document.querySelector("#default");
-  var area_result = document.querySelector("#result");
-  var texto_out = document.querySelector("#texto_out");
+  let area_default = document.querySelector("#default");
+  let area_result = document.querySelector("#result");
+  let texto_out = document.querySelector("#texto_out");
   if (texto != "") {
-    var out = "";
-    for (var i = 0; i < texto.length; i++) {
+    let out = "";
+    for (let i = 0; i < texto.length; i++) {
       if ((texto[i] < "a" || texto[i] > "z") && texto[i] != " ") {
         document.querySelector("#warning").style.color = "red";
         document.querySelector("#warning").style.fontSize = "16px";
@@ -45,13 +46,13 @@ function encriptar(traduccion) {
 
 function desencriptar(traduccion) {
   document.querySelector("#warning").removeAttribute("style");
-  var textarea = document.querySelector("#texto");
-  var texto = textarea.value;
-  var area_default = document.querySelector("#default");
-  var area_result = document.querySelector("#result");
-  var texto_out = document.querySelector("#texto_out");
+  let textarea = document.querySelector("#texto");
+  let texto = textarea.value;
+  let area_default = document.querySelector("#default");
+  let area_result = document.querySelector("#result");
+  let texto_out = document.querySelector("#texto_out");
   if (texto != "") {
-    for (var i = 0; i < texto.length; i++) {
+    for (let i = 0; i < texto.length; i++) {
       if ((texto[i] < "a" || texto[i] > "z") && texto[i] != " ") {
         document.querySelector("#warning").style.color = "red";
         document.querySelector("#warning").style.fontSize = "16px";
@@ -86,7 +87,7 @@ const enc = document.querySelector("#enc");
 const des = document.querySelector("#des");
 const copy = document.querySelector("#copiar");
 
-var traduccion = { a: "ai", e: "enter", i: "imes", o: "ober", u: "ufat" };
+let traduccion = { a: "ai", e: "enter", i: "imes", o: "ober", u: "ufat" };
 
 enc.addEventListener("click", function () {
   encriptar(traduccion);
