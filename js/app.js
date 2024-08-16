@@ -1,11 +1,15 @@
 // Función de encriptación y desencriptación de texto
 function encriptar(traduccion) {
   document.querySelector("#warning").removeAttribute("style");
+  // Seleccionamos el texto del textarea
   let textarea = document.querySelector("#texto");
+  // Almacenamos el texto a encriptar / desencriptar
   const texto = textarea.value;
+  // Seleccionamos atributo defalult, result y texto_out
   let area_default = document.querySelector("#default");
   let area_result = document.querySelector("#result");
   let texto_out = document.querySelector("#texto_out");
+  // Almacenamos el texto a encriptar / desencriptar
   if (texto != "") {
     let out = "";
     for (let i = 0; i < texto.length; i++) {
@@ -46,11 +50,15 @@ function encriptar(traduccion) {
 
 function desencriptar(traduccion) {
   document.querySelector("#warning").removeAttribute("style");
+  // Seleccionamos el texto del textarea
   let textarea = document.querySelector("#texto");
+  // Almacenamos el texto a encriptar / desencriptar
   let texto = textarea.value;
+  // Seleccionamos atributo defalult, result y texto_out
   let area_default = document.querySelector("#default");
   let area_result = document.querySelector("#result");
   let texto_out = document.querySelector("#texto_out");
+  // Validamos la entrada del texto si es vacía
   if (texto != "") {
     for (let i = 0; i < texto.length; i++) {
       if ((texto[i] < "a" || texto[i] > "z") && texto[i] != " ") {
@@ -66,6 +74,7 @@ function desencriptar(traduccion) {
         return;
       }
     }
+    // Aplicación de la desencriptación
     area_default.classList.add("invisible");
     area_result.classList.remove("invisible");
     texto = texto.replace(new RegExp(traduccion["a"], "g"), "a");
@@ -77,7 +86,7 @@ function desencriptar(traduccion) {
   }
   return;
 }
-
+// Función de copiar texto del texarea
 function clipboard() {
   const texto_out = document.querySelector("#texto_out");
   navigator.clipboard.writeText(texto_out.value);
@@ -85,10 +94,11 @@ function clipboard() {
 
 const enc = document.querySelector("#enc");
 const des = document.querySelector("#des");
-const copy = document.querySelector("#copiar");
+const copy = document.querySelector("#copy");
 
 let traduccion = { a: "ai", e: "enter", i: "imes", o: "ober", u: "ufat" };
 
+// Desencadenador de funciones en base a click event
 enc.addEventListener("click", function () {
   encriptar(traduccion);
 });
